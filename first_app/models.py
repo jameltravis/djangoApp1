@@ -11,6 +11,7 @@ class Topic(models.Model):
 
 
 class Webpage(models.Model):
+    """Webpage model"""
     topic = models.ForeignKey(Topic)
     name = models.CharField(max_length=264, unique=True)
     url = models.URLField(unique=True)
