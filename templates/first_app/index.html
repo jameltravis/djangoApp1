@@ -5,12 +5,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Index</title>
-    <link rel="stylesheet" href="{% static "css/first_app.css" %}">
+    <title>Des Indeks</title>
+    <link rel="stylesheet" href="{% static "css/first_app.css" %}"/>
 </head>
 <body>
-    <h1>Picture of a Random Screenshot</h1>
-    <img src="{% static "images/screenshot.png" %} " alt="Random Screenshot">
-    
+    <h1>Hi this page shows that this works</h1>
+    <h2>Here are the records!</h2>
+
+    <div class="djangotwo">
+        {% if access_records %}
+        <table class="djangotwo">
+            <thead>
+                <th>Site Name</th>
+                <th>Date Accessed</th>
+            </thead>
+            {% for record in access_records %}
+            <tr>
+                <td>{{ record.name}}</td>
+                <td>{{ record.date }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% else %}
+        <p>No Records Found!</p>
+        {% endif %}
+
+        
+
+    </div>
 </body>
 </html>
